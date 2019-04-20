@@ -1,0 +1,9 @@
+<div>
+  <h1>Test List</h1>
+  <ul>
+    <li>hello</li>
+    <li *ngFor="let test of tests | async">
+      <a [href]="test.url">{{test.name}}</a>
+    </li>
+  </ul>
+</div>

@@ -10,13 +10,17 @@ import { environment } from '../environments/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { storeFreeze } from 'ngrx-store-freeze';
 
+import {TestReducer} from '../app/reducers/test.reducer';
+import { ReadComponent } from './read/read.component';
+import { WriteComponent } from './write/write.component';
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ReadComponent, WriteComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot([], { initialNavigation: 'enabled' }),
     StoreModule.forRoot(
-      {},
+      {test_reducer : TestReducer},
       { metaReducers: !environment.production ? [storeFreeze] : [] }
     ),
     EffectsModule.forRoot([]),
